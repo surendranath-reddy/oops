@@ -9,6 +9,7 @@ $(document).ready(() => {
             <td>${d.title}</td>
                     <td width="350" style="text-align: center;">
                         <button type="button" class="btn btn-link" onclick="showModal('${d.id}')">Source</button>
+                        <span class="d-none spinner-border spinner-border-sm" role="status" aria-hidden="true" id="spin${d.id}"></span>
                     </td>
             </tr>`;
         });
@@ -18,6 +19,7 @@ $(document).ready(() => {
 });
 
 function showModal(id) {
+    $("#spin" + id).removeClass('d-none')
 
     const d = list.find((i) => i.id == id);
 
@@ -32,6 +34,8 @@ function showModal(id) {
         prettyPrint();
 
         $("#output").text(d.output);
+
+        $("#spin" + id).addClass("d-none")
         $('#myModal').modal('show');
     });
 }
