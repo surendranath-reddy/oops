@@ -1,6 +1,6 @@
 var list = [];
 $(document).ready(() => {
-    jQuery.get('/data.json', function (data) {
+    jQuery.get('./data.json', function (data) {
         list = data;
         let str = '';
         data.forEach((d, index) => {
@@ -23,7 +23,7 @@ function showModal(id) {
 
     $("#modalTitle").text(d.title);
 
-    jQuery.get('/java/' + d.file, function (data) {
+    jQuery.get('./java/' + d.file, function (data) {
         // var lines = data.split("\n");
 
         $("#preParent").html('<pre id="preContent" class="prettyprint lang-java"></pre>');
